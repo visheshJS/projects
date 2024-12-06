@@ -5,12 +5,12 @@ const hot=document.getElementById("hot");
 const cold=document.getElementById("cold");
 const normal=document.getElementById("normal");
 
-let T= Number(temp.value)
+let T;
 function convert(){
     hot.style.display='none';
     cold.style.display='none';
     normal.style.display='none';
-    if(temp.value=="" || isNaN(Number(temp.value))){
+    if(temp.value=="" || isNaN(temp.value)){
         window.alert("please enter a temperature value first")
 
     }
@@ -20,25 +20,17 @@ function convert(){
     }
     else{
         if(tocelsius.checked){
-            
+            T=(temp.value);
             ANSWER=(T-32)*(5/9);
-            // console.log("Converted to Celsius (ANSWER):", ANSWER);
-            document.getElementById(Cgif(ANSWER)).style.display="block";
-            document.getElementById("ANSWER").textContent= ANSWER.toFixed(2) + "°C";
-
-
-
+            document.getElementById(Cgif(ANSWER)).style.display='block';
+            document.getElementById("ANSWER").textContent=ANSWER.toFixed(2)+'°C';
         }
         if(tofarenheit.checked){
-            
+            T=(temp.value);
             ANSWER=(T*(9/5))+32;
-            // console.log("Converted to Farnehiet (ANSWER):", ANSWER);
-            document.getElementById(Fgif(ANSWER)).style.display="block";
-            document.getElementById("ANSWER").textContent= ANSWER.toFixed(2) + "°F";
-
-
+            document.getElementById(Fgif(ANSWER)).style.display='block';
+            document.getElementById("ANSWER").textContent=ANSWER.toFixed(2)+'°F';
         }
-        
     }
 
 
